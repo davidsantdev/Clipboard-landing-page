@@ -1,138 +1,57 @@
-$breakpoint-mobile: 1326px;
-$cor-principal: hsl(210, 10%, 33%);
-$cor-texto: hsl(201, 11%, 66%);
-$font-padrao: "DM Sans", sans-serif;
-$font-titulo: "Bai Jamjuree", sans-serif;
-
-
-@mixin reset-defaults {
-  margin: 0;
-  padding: 0;
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-@mixin flex-center($justify: center, $align: center) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-}
 
-@mixin bg-responsive($desktop-img, $mobile-img) {
-  background-size: cover;
-  background-size: contain;
-  background-size: 100% 100%;
-  
-  @media (max-width: #{$breakpoint-mobile}) {
-    background-image: url($mobile-img);
-    background-size: cover;
-    background-size: contain;
+
+
+header{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    background-image: url(./images/bg-header-desktop.png);
+    background-size: cover; 
+    background-size: contain; 
     background-size: 100% 100%;
-  }
-  
-  background-image: url($desktop-img);
+
+    @media (max-width:1326px){
+    background-image: url(./images/bg-header-mobile.png);
+    background-size: cover; 
+    background-size: contain; 
+    background-size: 100% 100%;
+    }
 }
 
-@mixin borda-arredondada($raio: 70px, $hover-raio: 40px) {
-  border: 0;
-  border-radius: $raio;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  
-  @media (max-width: #{$breakpoint-mobile}) {
-    border-radius: $hover-raio;
-  }
-  
-  &:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  }
+.logo{
+    margin-top: 2%;
 }
+.titulo{
+    width: 100%;
 
-@mixin texto-padrao($font-family: $font-padrao, $color: $cor-texto, $weight: 300) {
-  font-family: $font-family, sans-serif;
-  color: $color;
-  font-weight: $weight;
+    font-family: "Bai Jamjuree", sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    color: hsl(210, 10%, 33%);
+    
 }
+.header-container{
+    margin-top: 70px;
+    width: 40%;
+    text-align: center;
 
 
-.botao {
-  padding: 20px;
-  gap: 20px;
-  
-  @media (max-width: #{$breakpoint-mobile}) {
-    gap: 50px;
+    justify-content: center;
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    flex-wrap: wrap;
-    height: auto;
-  }
-  
-  .ios, .mac {
-    @include borda-arredondada();
-    
-    padding: 20px;
-    color: aliceblue;
-    font-family: $font-titulo, sans-serif;
-    font-size: 20px;
-    
-    @media (max-width: #{$breakpoint-mobile}) {
-      font-size: 14px;
-      margin-left: auto;
-      margin-right: auto;
+
+    @media (max-width:1326px){
+        width: 100%;
+
     }
-  }
-  
-  .mac {
-    background-color: hsl(233, 100%, 69%);
-    margin-left: 20px;
-  }
-}
-
-
-.container-main {
-  margin-top: 30px;
-  display: flex;
-  
-  @media (max-width: #{$breakpoint-mobile}) {
-    display: block;
-  }
-  
-  .texto {
-    margin-left: 10%;
-    margin-top: 5%;
-  }
-}
-
-
-body {
-  @include reset-defaults;
-  overflow-x: hidden;
-}
-
-header {
-  @include flex-center();
-  @include bg-responsive("./images/bg-header-desktop.png", "./images/bg-header-mobile.png");
-}
-
-.logo {
-  margin-top: 2%;
-}
-
-.titulo {
-  width: 100%;
-  @include texto-padrao($font-titulo, $cor-principal, 600);
-  font-size: 50px;
-}
-
-.header-container {
-  margin-top: 70px;
-  width: 40%;
-  text-align: center;
-  @include flex-center();
-  margin-left: auto;
-  margin-right: auto;
-  
-  @media (max-width: #{$breakpoint-mobile}) {
-    width: 100%;
-  }
 }
 .parag{
     width: 85%;
@@ -181,11 +100,9 @@ header {
 .botao{
     padding: 20px;
     gap: 20px;
-
     width: 500px;
-    margin-right: auto;
     margin-left: auto;
-
+    margin-right: auto;
 
 
     @media (max-width:1326px){
@@ -204,7 +121,6 @@ header {
 .ios:hover{
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     background-color: hsl(171, 63%, 61%);;
-    
     
 }
 .mac:hover{
